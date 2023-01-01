@@ -23,7 +23,7 @@ public class Hogwarts {
     }
 
     public void setTransgression(int transgression) {
-        if (wizardry < 0) {
+        if (transgression < 0) {
             throw new RuntimeException("Значение не может быть отрицательное!");
         }
         this.transgression = transgression;
