@@ -1,18 +1,38 @@
 package hogwarts;
 
-import lombok.Getter;
 
-@Getter
-
-public class Hogwarts {
+abstract class Hogwarts {
 
 
     private int wizardry;
     private int transgression;
+    private String namePupils;
 
-    Hogwarts(int wizardry, int transgression) {
+    Hogwarts(String namePupils, int wizardry, int transgression) {
         setWizardry(wizardry);
         setTransgression(transgression);
+        setNamePupils(namePupils);
+    }
+
+
+    public void infoPupils() {
+        System.out.println("<<" + this.namePupils + ">>");
+        System.out.println(this);
+    }
+
+    String getNamePupils() {
+        return namePupils;
+    }
+
+    public void setNamePupils(String namePupils) {
+        try {
+            if (namePupils == null || namePupils.isBlank()) {
+                throw new RuntimeException();
+            }
+            this.namePupils = namePupils;
+        } catch (RuntimeException e) {
+            System.out.println("Ошибка! Не заполнено или неправильно указано имя ученика.");
+        }
     }
 
     public void setWizardry(int wizardry) {
@@ -27,5 +47,10 @@ public class Hogwarts {
             throw new RuntimeException("Значение не может быть отрицательное!");
         }
         this.transgression = transgression;
+    }
+
+    @Override
+    public String toString() {
+        return "Мощность колдовства: " + wizardry + "\nСила трансгрессирования: " + transgression + "\n";
     }
 }
