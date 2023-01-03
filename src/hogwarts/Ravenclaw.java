@@ -34,14 +34,16 @@ public class Ravenclaw extends Hogwarts {
         this.creation = creation;
     }
 
-    public static void сomPupils(Ravenclaw one, Ravenclaw two) {
+    public static void comparePupils(Ravenclaw one, Ravenclaw two) {
         int x = one.creation + one.wisdom + one.intelligence;
         int y = two.creation + two.wisdom + two.intelligence;
         if (x > y) {
-            System.out.println(one.getNamePupils() + " лучший Когтевранец, чем " + two.getNamePupils());
+            System.out.println(one.getNamePupils() + " лучший Когтевранец, чем " + two.getNamePupils()+".");
         } else {
-            System.out.println(two.getNamePupils() + " лучший Когтевранец, чем " + one.getNamePupils());
+            System.out.println(two.getNamePupils() + " лучший Когтевранец, чем " + one.getNamePupils()+".");
         }
+        System.out.println(one.getNamePupils() + ": " + x);
+        System.out.println(two.getNamePupils() + ": " + y);
     }
 
 

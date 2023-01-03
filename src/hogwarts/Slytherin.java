@@ -53,14 +53,16 @@ public class Slytherin extends Hogwarts {
         this.lustForPower = lustForPower;
     }
 
-    public static void сomPupils(Slytherin one, Slytherin two) {
+    public static void comparePupils(Slytherin one, Slytherin two) {
         int x = one.ambition + one.lustForPower + one.resourcefulness + one.resolve + one.cunning;
         int y = two.ambition + two.lustForPower + two.resourcefulness + two.resolve + two.cunning;
         if (x > y) {
-            System.out.println(one.getNamePupils() + " лучший Слизеринец, чем " + two.getNamePupils());
+            System.out.println(one.getNamePupils() + " лучший Слизеринец, чем " + two.getNamePupils()+".");
         } else {
-            System.out.println(two.getNamePupils() + " лучший Слизеринец, чем " + one.getNamePupils());
+            System.out.println(two.getNamePupils() + " лучший Слизеринец, чем " + one.getNamePupils()+".");
         }
+        System.out.println(one.getNamePupils() + ": " + x);
+        System.out.println(two.getNamePupils() + ": " + y);
     }
 
 

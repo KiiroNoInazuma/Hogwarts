@@ -1,7 +1,6 @@
 package hogwarts;
 
-
-abstract class Hogwarts {
+public abstract class Hogwarts {
 
 
     private int wizardry;
@@ -11,7 +10,14 @@ abstract class Hogwarts {
     Hogwarts(String namePupils, int wizardry, int transgression) {
         setWizardry(wizardry);
         setTransgression(transgression);
-        setNamePupils(namePupils);
+        try {
+            if (namePupils == null || namePupils.isBlank()) {
+                throw new RuntimeException();
+            }
+            this.namePupils = namePupils;
+        } catch (RuntimeException e) {
+            System.out.println("Ошибка! Не заполнено или неправильно указано имя ученика в объекте класса " + getClass().getSimpleName() + ".");
+        }
     }
 
 
@@ -22,17 +28,6 @@ abstract class Hogwarts {
 
     String getNamePupils() {
         return namePupils;
-    }
-
-    public void setNamePupils(String namePupils) {
-        try {
-            if (namePupils == null || namePupils.isBlank()) {
-                throw new RuntimeException();
-            }
-            this.namePupils = namePupils;
-        } catch (RuntimeException e) {
-            System.out.println("Ошибка! Не заполнено или неправильно указано имя ученика.");
-        }
     }
 
     public void setWizardry(int wizardry) {
@@ -48,6 +43,24 @@ abstract class Hogwarts {
         }
         this.transgression = transgression;
     }
+
+    public static void compareAll(Hogwarts... hogwarts) {
+        int max = 0;
+        int result;
+        int sum;
+        for (Hogwarts ht : hogwarts) {
+            result = ht.transgression + ht.wizardry;
+            max = Integer.max(result, max);
+            System.out.println(ht.namePupils + ": " + result);
+        }
+        for (Hogwarts ht : hogwarts) {
+            sum = ht.transgression + ht.wizardry;
+            if (max == sum) {
+                System.out.println(ht.namePupils + " самый сильный волшебник!");
+            }
+        }
+    }
+
 
     @Override
     public String toString() {

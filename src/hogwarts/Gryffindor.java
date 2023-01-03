@@ -35,14 +35,16 @@ public class Gryffindor extends Hogwarts {
         this.bravery = bravery;
     }
 
-    public static void сomPupils(Gryffindor one, Gryffindor two) {
+    public static void comparePupils(Gryffindor one, Gryffindor two) {
         int x = one.bravery + one.honor + one.nobility;
         int y = two.bravery + two.honor + two.nobility;
         if (x > y) {
-            System.out.println(one.getNamePupils() + " лучший Гриффиндорец, чем " + two.getNamePupils());
+            System.out.println(one.getNamePupils() + " лучший Гриффиндорец, чем " + two.getNamePupils()+".");
         } else {
-            System.out.println(two.getNamePupils() + " лучший Гриффиндорец, чем " + one.getNamePupils());
+            System.out.println(two.getNamePupils() + " лучший Гриффиндорец, чем " + one.getNamePupils()+".");
         }
+        System.out.println(one.getNamePupils() + ": " + x);
+        System.out.println(two.getNamePupils() + ": " + y);
     }
 
     @Override
